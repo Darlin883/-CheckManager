@@ -121,7 +121,7 @@
 .options-form{
     margin: 0 auto;
     width: 200px;
-    height: 100px;
+    min-height: 20px;
 }
 .new-form{
     padding-left: 10%;
@@ -195,4 +195,11 @@
 
 body{
     background-color: #202020;
+}
+
+
+@media screen and (max-width: 450px){
+    .result-holder h2{
+       font-size: 15px;
+    }
 }

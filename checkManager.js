@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let customOutput = document.querySelector('#customOutput');
     let percentageOutput = document.querySelector('#percentageOutput');
 
-    inputRestrictions();
+    const resultHTML = document.querySelector('.result-holder');
 
     form.addEventListener('change', (e) => {
         const value = e.target.value;
@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             downPaymentOutput.innerHTML = '';
             customOutput.innerHTML = '';
             percentageOutput.innerHTML = '';
+            resetResults(); // Clear any displayed results
 
             if(value === 'down-payment'){
                 downPaymentOutput.innerHTML = financialOptions(value);
@@ -48,7 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
     addButton.addEventListener('click', () => {
         downPayment();
     });
-    
+
+    function resetResults() {
+        if (resultHTML) {
+            resultHTML.innerHTML = ''; // Clear any displayed results
+        }
+    }
+
+    inputRestrictions();
     calculatePercentages();
 })
 
@@ -94,7 +102,7 @@ function inputRestrictions() {
     if (nameOfDownPay) {
         nameOfDownPay.addEventListener('input', (e) => {
             let value = e.target.value;
-            value = value.replace(/[^A-Za-z]/g, ''); // Allow both uppercase and lowercase letters
+            value = value.replace(/[^A-Za-z\s]/g, '');// Allow both uppercase and lowercase letters
             e.target.value = value; 
         });
     }
@@ -269,6 +277,7 @@ function calculatePercentages(){
             }
         }
     });
+    
 }
 
 // this function will 
