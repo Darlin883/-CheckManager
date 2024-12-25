@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let customOutput = document.querySelector('#customOutput');
     let percentageOutput = document.querySelector('#percentageOutput');
 
+    inputRestrictions();
+
     form.addEventListener('change', (e) => {
         const value = e.target.value;
         
@@ -61,9 +63,9 @@ function inputRestrictions() {
     const downPaymentInput = document.querySelector('#payment');
     const nameOfDownPay = document.querySelector('#name-of-payment');
 
-    if (input && downPaymentInput) {
-        [input, downPaymentInput].forEach((input) => {
-            input.addEventListener('input', (e) => {
+        [input, downPaymentInput].forEach((inputField) => {
+            if(inputField){
+            inputField.addEventListener('input', (e) => {
                 let value = e.target.value;
                 
                 let hasDollarSign = value.startsWith('$');// -----------------------Remove the dollar sign if present at the start for formatting
@@ -83,12 +85,11 @@ function inputRestrictions() {
             });
 
             // Prevent pasting invalid input
-            input.addEventListener('paste', (e) => {
+            inputField.addEventListener('paste', (e) => {
                 e.preventDefault(); // Block paste
             });
-    
+            }
         });
-    }
 
     if (nameOfDownPay) {
         nameOfDownPay.addEventListener('input', (e) => {
@@ -295,7 +296,7 @@ function downPayment() {
         newDiv.classList.add('down-payment-details'); // Add a class for styling if needed
         newDiv.innerHTML = `
             <p>Down Payment Name: ${nameOfDownPay.value}</p>
-            <p>Down Payment Amount: $${downPaymentValue.toFixed(2)}</p>
+            <p>Down Payment Amount: -$${downPaymentValue.toFixed(2)}</p>
         `;
 
         // Append the new div to the result container or another desired element
