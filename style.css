@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box{
+    margin: 0 auto;
+    margin-top: 10%;
+    width: 90%;/* 70% for when start doing responsive */
+    height: 65vh;
+    border-radius: 5px;
+    background-color: bisque;
+}
+
+.box-holder{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+
+.input-of-check{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    width: 80%;
+    height: 20vh;
+    background-color: rgb(132, 201, 178);
+}
+.input-of-check-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    width: 80%;
+    height: 10vh;
+    background-color: azure;
+}
+
+.input-holder{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 70%;
+    height: 5vh;
+}
+
+.input-bar{
+    padding: 10px;
+    font-size: 20px;
+    min-width: 20%;
+    height: 5vh;
+}
+.enter-button{
+    width: 60px;
+    height: 42px;
+
+}
+
+/* --------------------- */
+/* ------EXAMPLE------- */
+/* ------------------- */
+
+.example{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    height: 4vh;
+    width: 20%;
+    justify-content: space-evenly;
+    background-color: aliceblue;
+}
+
+/* -------------------------------- */
+/* ------RADIO BUTTON FORMS------- */
+/* ------------------------------ */
+.options-form{
+    margin: 0 auto;
+    width: 200px;
+    height: 100px;
+}
+.new-form{
+    padding-left: 10%;
+}
+
+/* ------------------------------- */
+/* ------PERCENTAGE HOLDER------- */
+/* ----------------------------- */
+
+.price-holder{
+    margin: 0 auto;
+    justify-content: center;
+    width: 80%;
+    height: 30vh;
+    background-color: rgb(209, 124, 124);
+}
+.option-holder{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    width: 60%;
+    height: 20vh;
+    background-color: rgb(230, 134, 134);
+}
+
+/* BUTTON CSS */
+.button-holder{
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 2vh;
+}
+#Generate{
+    margin: 0 auto;
+    width: 20%;
+    height: 3vh;
+}
+
+.percentage-container{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.percentage-holder{
+    display: flex;
+    min-width: 200px;
+    min-height: 200px;
+    background-color: #444444;
+}
+
+.percent-and-amount-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+body{
+    background-color: #202020;
+}
