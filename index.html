@@ -19,6 +19,10 @@
             
             <div class="option-holder">
                 <form id="percentageForm" class="options-form">
+                    <input type="radio" id="down-payment" name="select" value="down-payment">
+                    <label for="down-payment">Down Payment</label><br>
+                    <div id="downPaymentOutput" class="new-form"></div>
+
                     <input type="radio" id="custom" name="select" value="custom">
                     <label for="custom">Custom Percentage %</label><br>
                     <div id="customOutput" class="new-form"></div>
@@ -28,10 +32,12 @@
                     <div id="percentageOutput" class="new-form"></div>
                          
                 </form>
-                <div class="button-holder"><button id="Generate">Generate</button> </div>
+                <div class="button-holder"><button id="Generate">Generate</button> <button id="Add" style="display: none;">Add</button></div>
                 
             </div>
-            
+
+            <div class="result-holder"></div>
+            <div class="list-of-pay"></div>
 
             </div>
         </div>
