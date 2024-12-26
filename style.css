@@ -48,7 +48,7 @@
     flex-direction: row;
     margin: 0 auto;
     text-align: center;
-    min-width: 400px;
+    min-width: 350px;
     min-height: 8vh;
     border-radius: 5px;
     background-color: var(--color-2);
@@ -254,7 +254,7 @@ body{
     position: relative;
     display: flex;
     justify-content: space-evenly;
-    margin: 0 auto;
+    margin: 5px auto;
     align-items: center;
     width: 120px;
     height: 120px;
