@@ -304,8 +304,8 @@ function downPayment() {
         const newDiv = document.createElement('div');
         newDiv.classList.add('down-payment-details'); // Add a class for styling if needed
         newDiv.innerHTML = `
-            <p>Down Payment Name: ${nameOfDownPay.value}</p>
-            <p>Down Payment Amount: -$${downPaymentValue.toFixed(2)}</p>
+            <p>Payment Name: ${nameOfDownPay.value}</p>
+            <p>Payment Amount: -$${downPaymentValue.toFixed(2)}</p>
         `;
 
         // Append the new div to the result container or another desired element
