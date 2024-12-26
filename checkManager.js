@@ -209,76 +209,76 @@ function financialOptions(value) {
     }
 }
 
-function calculatePercentages(){
+function calculatePercentages() {
     const check = document.querySelector('.input-bar');
-
     const generateButton = document.querySelector('#Generate');
-    generateButton.addEventListener('click', () => {
-
-        // Clean the input value by removing the dollar sign and commas
-        const rawValue = check.value.replace(/[^\d.-]/g, ''); // Remove non-numeric characters
-        const checkValue = parseFloat(rawValue) || 0; // Convert to number and handle invalid input
-
-        /*--------------------*/
-        /*----- OPTIONS -----*/
-        /*-------------------*/
-
-        const resultHTML = document.querySelector('.result-holder');
-
-        const selectedPreset = document.querySelector('input[name="presetInput"]:checked');
-        if (selectedPreset) {
-       
-            const preset1 = selectedPreset.value === 'preset1';
-            const preset2 = selectedPreset.value === 'preset2';
-            const preset3 = selectedPreset.value === 'preset3';
-
-            if (preset1) {
-                return resultHTML.innerHTML = `
-                    <div class="result-holder">
-                        <h2>saving: $${(checkValue * 0.70).toFixed(2)}</h2>
-                        <h2>User: $${(checkValue * 0.30).toFixed(2)}</h2>
-                    </div>`;
-            } else if (preset2) {
-                return resultHTML.innerHTML = `
-                    <div class="result-holder">
-                        <h2>saving: $${(checkValue * 0.30).toFixed(2)}</h2>
-                        <h2>User: $${(checkValue * 0.70).toFixed(2)}</h2>
-                    </div>`;
-            } else if (preset3) {
-                return resultHTML.innerHTML = `
-                <div class="result-holder">
-                    <h2>saving: $${(checkValue * 0.50).toFixed(2)}</h2>
-                    <h2>User: $${(checkValue * 0.50).toFixed(2)}</h2>
-                </div>`;
-            } 
-        } else {
-            const customSaving = document.querySelector('#customSaving');
-            const customUser = document.querySelector('#customUser');
-            console.log('im working')
-            if (customSaving && customUser) {
-                const savingValue = parseFloat(customSaving.value) || 0; // Convert to number
-                const userValue = parseFloat(customUser.value) || 0; // Convert to number
-
-                console.log('Saving Value:', savingValue);
-                    console.log('User Value:', userValue);
-                    console.log('Sum:', savingValue + userValue);
-        
-                if (savingValue + userValue === 100) {
-                    const savingPercentage = savingValue / 100;
-                    const userPercentage = userValue / 100;
-                    resultHTML.innerHTML = `
-                    <div class="result-holder">
-                        <h2>saving: $${(checkValue * savingPercentage).toFixed(2)}</h2>
-                        <h2>User: $${(checkValue * userPercentage).toFixed(2)}</h2>
-                    </div>`;
-                } else {
-                    console.log('The percentages do not add up to 100.'); 
-                }
-            }
-        }
-    });
     
-}
+    generateButton.addEventListener('click', () => {
+      // Clean the input value by removing the dollar sign and commas
+      const rawValue = check.value.replace(/[^\d.-]/g, ''); // Remove non-numeric characters
+      const checkValue = parseFloat(rawValue) || 0; // Convert to number and handle invalid input
+  
+      const resultHTML = document.querySelector('.result-holder');
+      resultHTML.innerHTML = ''; // Clear previous results
+  
+      const selectedPreset = document.querySelector('input[name="presetInput"]:checked');
+      if (selectedPreset) {
+        let savingPercentage = 0;
+        let userPercentage = 0;
+  
+        if (selectedPreset.value === 'preset1') {
+          savingPercentage = 70;
+          userPercentage = 30;
+        } else if (selectedPreset.value === 'preset2') {
+          savingPercentage = 30;
+          userPercentage = 70;
+        } else if (selectedPreset.value === 'preset3') {
+          savingPercentage = 50;
+          userPercentage = 50;
+        }
+  
+        displayProgressBar(resultHTML, 'Saving', savingPercentage, checkValue);
+        displayProgressBar(resultHTML, 'User', userPercentage, checkValue);
+      } else {
+        const customSaving = document.querySelector('#customSaving');
+        const customUser = document.querySelector('#customUser');
+  
+        if (customSaving && customUser) {
+          const savingPercentage = parseFloat(customSaving.value) || 0; // Convert to number
+          const userPercentage = parseFloat(customUser.value) || 0; // Convert to number
+  
+          if (savingPercentage + userPercentage === 100) {
+            displayProgressBar(resultHTML, 'Saving', savingPercentage, checkValue);
+            displayProgressBar(resultHTML, 'User', userPercentage, checkValue);
+          } else {
+            console.log('The percentages do not add up to 100.');
+          }
+        }
+      }
+    });
+  }
+  
+  function displayProgressBar(container, label, percentage, total) {
+    const value = (total * (percentage / 100)).toFixed(2); // Calculate the dollar amount
+    const progressHTML = `
+      <div class="progress-wrapper">
+        <div class="progress-container">
+          <div class="outer-circle">
+            <div class="progress-circle" style="background: conic-gradient(
+              #FCA311 0%,
+              #FCA311 ${percentage}%,
+              transparent ${percentage}%,
+              transparent 100%
+            );"></div>
+          </div>
+          <span class="progress-percentage">${percentage}%</span>
+        </div>
+        <div class="progress-label">${label}: $${value}</div>
+      </div>
+    `;
+  
+    container.innerHTML += progressHTML;
+  }
 
 // this function will 
 // subtract the downPayment from check
@@ -317,3 +317,24 @@ function downPayment() {
     }
 }
 
+
+function updateProgressBar(percentage) {
+    const progressCircle = document.querySelector('.progress-circle');
+    const progressPercentage = document.querySelector('.progress-percentage');
+  
+    // Cap the percentage at 100%
+    const cappedPercentage = Math.min(percentage, 100);
+  
+    // Update the progress circle background using `conic-gradient`
+    progressCircle.style.background = `conic-gradient(
+      #4caf50 0%,
+      #4caf50 ${cappedPercentage}%,
+      #ddd ${cappedPercentage}%,
+      #ddd 100%
+    )`;
+  
+    // Update the displayed percentage
+    progressPercentage.textContent = `${cappedPercentage}%`;
+  }
+  
+  // Example usage
