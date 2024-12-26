@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add your custom button functionality here (if needed)
     addButton.addEventListener('click', () => {
+        // if(){<-----------------------------------------------------------------------FIX THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+
+        // }
         downPayment();
     });
 
@@ -273,7 +276,7 @@ function calculatePercentages() {
           </div>
           <span class="progress-percentage">${percentage}%</span>
         </div>
-        <div class="progress-label">${label}: $${value}</div>
+        <div class="progress-label">${label}: $${formatWithCommas(value)}</div>
       </div>
     `;
   
@@ -298,14 +301,14 @@ function downPayment() {
         inputValue -= downPaymentValue;
 
         // Update the input-bar with the new value
-        input.value = `$${inputValue.toFixed(2)}`;
+        input.value = `$${formatWithCommas(inputValue.toFixed(2))}`;
 
         // Create the new div with the down payment details
         const newDiv = document.createElement('div');
         newDiv.classList.add('down-payment-details'); // Add a class for styling if needed
         newDiv.innerHTML = `
             <p>Payment Name: ${nameOfDownPay.value}</p>
-            <p>Payment Amount: -$${downPaymentValue.toFixed(2)}</p>
+            <p>Payment Amount: -$${formatWithCommas(downPaymentValue.toFixed(2))}</p>
         `;
 
         // Append the new div to the result container or another desired element
@@ -315,6 +318,13 @@ function downPayment() {
         downPaymentInput.value = ''; // Clear the down payment input field after it's used
         nameOfDownPay.value = ''; // Clear the name of down payment field
     }
+}
+
+// Helper function to format numbers with commas
+function formatWithCommas(value) {
+    const [integerPart, decimalPart] = value.split('.');
+    const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return decimalPart ? `${formattedInteger}.${decimalPart}` : formattedInteger;
 }
 
 
