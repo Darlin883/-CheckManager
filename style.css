@@ -29,7 +29,7 @@
     justify-content: space-evenly;
     margin: 0 auto;
     margin-top: 10%;
-    width: 90%;/* 70% for when start doing responsive */
+    width: 95%;/* 70% for when start doing responsive */
     min-height: 65vh;
     border-radius: 5px;
     background-color: var(--color-2);
@@ -99,7 +99,7 @@
     padding: 10px;
     font-size: 25px;
     text-align: center;
-    min-width: 240px;
+    min-width: 90%;
     height: 6vh;
 }
 .enter-button{
@@ -164,11 +164,13 @@
     margin: 0 auto;
     width: 100%;
     min-height: 2vh;
+    padding: 12px 0;
 }
 #Generate{
     margin: 0 auto;
     width: 70px;
     height: 3vh;
+    
 }
 #Add{
     margin: 0 auto;
