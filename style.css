@@ -63,7 +63,10 @@
     width: 300px;
     height: 10vh;
     padding: 5px 0px;
-    background-color: #c0aeae;
+    border: 1px solid var(--color-3);
+    border-radius: 5px;
+    color: var(--color-3);
+    background-color: var(--color-2);
     overflow-y: auto;
 }
 

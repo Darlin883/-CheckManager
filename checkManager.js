@@ -47,11 +47,30 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add your custom button functionality here (if needed)
     addButton.addEventListener('click', () => {
-        // if(){<-----------------------------------------------------------------------FIX THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-
-        // }
-        downPayment();
+        const downPaymentInput = document.querySelector('#payment');
+        const nameOfDownPay = document.querySelector('#name-of-payment');
+        const cautionContainer = document.querySelector('.caution-message'); // A container for caution messages
+    
+        // Clear any existing caution messages
+        if (cautionContainer) {
+            cautionContainer.textContent = '';
+            cautionContainer.style.display = 'none';
+        }
+    
+        // Check if both inputs are filled
+        if (downPaymentInput.value.trim() && nameOfDownPay.value.trim()) {
+            downPayment(); // Call the function if both fields are filled
+        } else {
+            // Show a caution message if inputs are missing
+            if (cautionContainer) {
+                alert("Please fill out all fields correctly.");
+                cautionContainer.style.display = 'block';
+            } else {
+                alert('Please fill in both the payment amount and payment name.');
+            }
+        }
     });
+    
 
     function resetResults() {
         if (resultHTML) {
