@@ -137,6 +137,9 @@
     min-height: 20px;
     padding: 5px 0px;
 }
+.options-form input{
+    min-height: 14px;
+}
 .new-form{
     padding-left: 10%;
 }
@@ -331,12 +334,12 @@ body{
     }
 }
 .header{
-    min-height: 200px;
+    min-height: 100px;
     background: #03a9f4;
 }
 
 .footer{
-    min-height: 200px;
+    min-height: 100px;
     border: 1px solid #0000;
     background: #616161;
 }
