@@ -97,7 +97,7 @@
     justify-content: space-evenly;
     margin: auto;
     width: 90%;
-    height: 7vh;
+    min-height: 7vh;
 }
 
 .input-bar{
@@ -105,7 +105,7 @@
     font-size: 25px;
     text-align: center;
     min-width: 90%;
-    height: 7vh;
+    min-height: 7vh;
 }
 .enter-button{
     width: 60px;
@@ -307,6 +307,51 @@ body{
     color: var(--color-3);
     z-index: 3;
   }
+   /* ----------------------------------------- */
+  /* ------------- COMPALIBILITY ------------- */
+ /* ----------------------------------------- */
+
+ div,header,section,aside,footer{
+    margin: 0;
+    padding: 5px;
+    
+    border: 1px solid #0000;
+    border-radius: 10px;
+}
+.container{
+    background-color: #0000;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #3c314e;
+    min-height: 500px;
+}
+@media screen and (min-width:640px){
+    .flex-container{
+        display: flex;
+    }
+}
+.header{
+    min-height: 200px;
+    background: #03a9f4;
+}
+
+.footer{
+    min-height: 200px;
+    border: 1px solid #0000;
+    background: #616161;
+}
+
+.app-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    min-height: 640px;
+    max-width: 44.2rem;
+    flex-grow: 1;
+    flex: 1;
+    background: var(--color-2);
+}
 
   
   

@@ -6,7 +6,57 @@
     <title>Check</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+
+<body class="container">
+    <div> 
+        <header>
+            <div class="header"><h2 style="font-family:Arial, Helvetica, sans-serif">Header</h2></div>
+        </header>
+            <section class="app-wrapper">
+                <div class="box-holder">
+                    <div class="input-of-check">
+                        <div class="input-of-check-input"> 
+                            <div class="input-holder">                
+                                <input type="text" class="input-bar" placeholder="Enter check here: $0.00">
+                            </div> 
+                        </div>
+                    </div>
+                    
+                    <div class="option-holder">
+                        <form id="percentageForm" class="options-form">
+                            <input type="radio" id="down-payment" name="select" value="down-payment">
+                            <label for="down-payment">Down Payment</label><br>
+                            <div id="downPaymentOutput" class="new-form"></div>
+        
+                            <input type="radio" id="custom" name="select" value="custom">
+                            <label for="custom">Custom Percentage %</label><br>
+                            <div id="customOutput" class="new-form"></div>
+        
+                            <input type="radio" id="options" name="select" value="options">
+                            <label for="options">Options</label>
+                            <div id="percentageOutput" class="new-form"></div>
+                                 
+                        </form>
+                        <div class="button-holder"><button id="Generate">Generate</button> <button id="Add" style="display: none;">Add</button></div>
+                        
+                    </div>
+        
+                    <div class="result-holder"></div>
+                    <div class="list-of-pay"></div>
+                </div>
+            </section>
+    
+        <footer>
+            <div class="footer"><h2 style="font-family: Arial, Helvetica, sans-serif;">footer</h2></div>
+        </footer>
+    </div>
+    
+    <script src="checkManager.js"></script>
+    </body>
+</html>
+
+<!-- <body>
     <section class="box">
         <div class="box-holder">
             <div class="input-of-check">
@@ -42,5 +92,4 @@
           
     </section>
     <script src="checkManager.js"></script>
-</body>
-</html>
+</body>-->
