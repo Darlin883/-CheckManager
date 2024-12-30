@@ -366,4 +366,33 @@ function updateProgressBar(percentage) {
     progressPercentage.textContent = `${cappedPercentage}%`;
   }
   
-  // Example usage
+  function animateProgressBar(progressElement, targetPercentage, duration = 2000) {
+    const startPercentage = 0; // Starting percentage
+    const increment = targetPercentage / (duration / 10); // Increment step based on duration
+    let currentPercentage = startPercentage;
+
+    const interval = setInterval(() => {
+        currentPercentage += increment;
+
+        // Cap the progress at the target percentage
+        if (currentPercentage >= targetPercentage) {
+            currentPercentage = targetPercentage;
+            clearInterval(interval); // Stop the animation
+        }
+
+        // Update the progress bar
+        progressElement.style.background = `conic-gradient(
+            #FCA311 0%,
+            #FCA311 ${currentPercentage}%,
+            transparent ${currentPercentage}%,
+            transparent 100%
+        )`;
+
+        // Update the displayed percentage text
+        const percentageText = progressElement.parentElement.querySelector('.progress-percentage');
+        if (percentageText) {
+            percentageText.textContent = `${Math.round(currentPercentage)}%`;
+        }
+    }, 10); // Update every 10ms for smooth animation
+}
+

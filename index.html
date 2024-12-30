@@ -6,25 +6,33 @@
     <title>Check</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
-
+<style>
+    fieldset {
+    background-color: #eeeeee;
+    padding: 5px  10px;
+    }
+    legend {
+       border-radius: 5px;
+       padding: 5px 5px;
+    }
+</style>
 <body class="container">
     <div> 
-        <!-- <header>
-            <div class="header"></div>
-        </header> -->
-            <section class="app-wrapper">
-                <div class="box-holder">
-                    <div class="input-of-check">
-                        <div class="input-of-check-input"> 
-                            <div class="input-holder">                
-                                <input type="text" class="input-bar" placeholder="Enter check here: $0.00">
-                            </div> 
-                        </div>
+        <section class="app-wrapper">
+            <div class="box-holder">
+                <div class="input-of-check">
+                    <div class="input-of-check-input"> 
+                        <div class="input-holder">                
+                            <input type="text" class="input-bar" placeholder="Enter check here: $0.00">
+                        </div> 
                     </div>
-                    
-                    <div class="option-holder">
-                        <form id="percentageForm" class="options-form">
+                </div>
+                
+                <div class="option-holder">
+                    <form id="percentageForm" class="options-form">
+                        <fieldset>
+                            <legend>Select</legend>
+
                             <input type="radio" id="down-payment" name="select" value="down-payment">
                             <label for="down-payment">Down Payment</label><br>
                             <div id="downPaymentOutput" class="new-form"></div>
@@ -35,61 +43,19 @@
         
                             <input type="radio" id="options" name="select" value="options">
                             <label for="options">Options</label>
-                            <div id="percentageOutput" class="new-form"></div>
-                                 
-                        </form>
-                        <div class="button-holder"><button id="Generate">Generate</button> <button id="Add" style="display: none;">Add</button></div>
-                        
-                    </div>
-        
-                    <div class="result-holder"></div>
-                    <div class="list-of-pay"></div>
+                            <div id="percentageOutput" class="new-form"></div>  
+
+                        </fieldset>
+                    </form>
+                    <div class="button-holder"><button id="Generate">Generate</button> <button id="Add" style="display: none;">Add</button></div>  
                 </div>
-            </section>
     
-        <!-- <footer>
-            <div class="footer"></div>
-        </footer> -->
+                <div class="result-holder"></div>
+                <div class="list-of-pay"></div>
+            </div>
+        </section>
     </div>
     
     <script src="checkManager.js"></script>
     </body>
 </html>
-
-<!-- <body>
-    <section class="box">
-        <div class="box-holder">
-            <div class="input-of-check">
-                <div class="input-of-check-input"> 
-                    <div class="input-holder">                
-                        <input type="text" class="input-bar" placeholder="Enter check here: $0.00">
-                    </div> 
-                </div>
-            </div>
-            
-            <div class="option-holder">
-                <form id="percentageForm" class="options-form">
-                    <input type="radio" id="down-payment" name="select" value="down-payment">
-                    <label for="down-payment">Down Payment</label><br>
-                    <div id="downPaymentOutput" class="new-form"></div>
-
-                    <input type="radio" id="custom" name="select" value="custom">
-                    <label for="custom">Custom Percentage %</label><br>
-                    <div id="customOutput" class="new-form"></div>
-
-                    <input type="radio" id="options" name="select" value="options">
-                    <label for="options">Options</label>
-                    <div id="percentageOutput" class="new-form"></div>
-                         
-                </form>
-                <div class="button-holder"><button id="Generate">Generate</button> <button id="Add" style="display: none;">Add</button></div>
-                
-            </div>
-
-            <div class="result-holder"></div>
-            <div class="list-of-pay"></div>
-        </div>
-          
-    </section>
-    <script src="checkManager.js"></script>
-</body>-->
