@@ -360,11 +360,12 @@ body{
 /* ---------- FORM LABELS ---------- */
 /* --------------------------------- */
 
-form label{
-    font-size: 1.2rem;
-}
 
-.new-form label{
-    
+
+@media screen and (min-width: 450px){
+    form label{
+        font-size: 1.2rem;
+    }
+
 }
   
